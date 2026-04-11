@@ -5,7 +5,7 @@ import keyboardImage from "../assets/keyboard.jpg"
 
 function CategorySection() {
     return (
-        <div className="mx-auto w-[90%] md:w-[78%] grid grid-cols-1 md:grid-cols-3 gap-[20px] md:gap-[40px] py-[30px] md:py-[60px]">
+        <div className="mx-auto w-[90%] md:w-[78%] flex flex-col md:flex-row gap-[20px] md:gap-[40px] py-[30px] md:py-[60px] md:justify-between">
             <CategoryCard backgroundImage={gpuImage} categoryName="Browse GPUs"/>
             <CategoryCard backgroundImage={monitorImage} categoryName="Browse Monitors"/>
             <CategoryCard backgroundImage={keyboardImage} categoryName="Browse PC Accessories"/>
