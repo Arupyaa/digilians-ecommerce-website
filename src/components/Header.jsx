@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 function Header() {
     return (
-        <Navbar fluid rounded className="border-b-2">
+        <Navbar fluid rounded className="border-b-2 sticky md:static top-0">
             <NavbarBrand href="#">
                 <img src={websiteIcon} className="mr-3 h-20 sm:h-30" alt="website logo" />
 
