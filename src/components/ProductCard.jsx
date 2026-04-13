@@ -2,7 +2,7 @@ import headphone from "../assets/Headphones.png"
 
 function ProductCard({ productTitle, productPrice, productDiscountedPrice = null, productImage }) {
     return (
-        <div className="border">
+        <div className="border row-span-1">
             {/* card image section */}
             <div>
                 <img src={productImage} className="h-[450px] object-cover w-full" alt="product image" />

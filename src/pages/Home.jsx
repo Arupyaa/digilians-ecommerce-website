@@ -1,15 +1,15 @@
 import CategorySection from "../components/CategorySection";
-import Header from "../components/Header";
+import FeaturedProducts from "../components/FeaturedProducts";
 import Hero from "../components/Hero";
-import ProductSection from "../components/ProductSection";
 
 function Home() {
+    const rows = 2;
+    const count = 6;
     return (
         <>
-            <Header />
             <Hero />
             <CategorySection/>
-            <ProductSection productCount={6} productRow={2} productCategory="case"/>
+            <FeaturedProducts productCount={count} productRow={rows}/>
         </>
     )
 }
