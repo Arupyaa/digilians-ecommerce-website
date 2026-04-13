@@ -1,0 +1,9 @@
+#fromSlider::-webkit-slider-thumb,
+#toSlider::-webkit-slider-thumb {
+    background-color: oklch(62.3% 0.214 259.815);
+}
+
+#fromSlider::-moz-range-thumb,
+#toSlider::-moz-range-thumb {
+    background-color: oklch(62.3% 0.214 259.815);
+}
