@@ -5,8 +5,7 @@ function Pagination({ entriesNo, entriesPerPage, currentPage }) {
     let originalArray = useRef([]);
     let maxPages = useRef(0);
     const [pageArray, setPageArray] = useState([]);
-    // const originalArray.current = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    useEffect(processPaginationArray,[currentPage]);
+    useEffect(processPaginationArray,[currentPage,entriesNo]);
     function processPaginationArray() {
         maxPages.current = Math.ceil(entriesNo/entriesPerPage);
         originalArray.current = [];
