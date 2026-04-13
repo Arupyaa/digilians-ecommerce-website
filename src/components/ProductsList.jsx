@@ -9,7 +9,7 @@ function ProductsList({ productCount,productRow, productCategory = "", currentPa
         changeProductList(result.slice(productCount * (currentPage - 1), productCount * currentPage));
 
     }
-    useEffect(() => { getProducts() }, [currentPage]);
+    useEffect(() => { getProducts() }, [currentPage,productCategory]);
     return (
         <div className={`mx-auto w-[90%] md:w-[78%] flex flex-col md:grid md:grid-cols-3 md:grid-rows-${productRow} gap-y-[20px] md:gap-[40px] py-[30px] md:py-[50px] justify-between`}>
             {productList.map((product) => {

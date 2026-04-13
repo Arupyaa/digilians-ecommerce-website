@@ -4,7 +4,6 @@ import ProductsList from "./ProductsList";
 
 
 function ProductSection({ productCount, productRow, productCategory,currentPage }) {
-    
     if(productCategory == "all"){
         productCategory = "";
     }

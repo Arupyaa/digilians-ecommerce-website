@@ -3,25 +3,32 @@ import { useState } from "react";
 import DoubleSlider from "./DoubleSlider";
 import "../css/DoubleSlider.css"
 
-function ProductsSidebar({isOpen, setIsOpen}) {
-    const [minValue,setMinValue] = useState(0);
-    const [maxValue,setMaxValue] = useState(10000);
+function ProductsSidebar({ isOpen, setIsOpen, setCategory }) {
+    const categories = ["All", "GPU", "CPU", "RAM", "Monitor", "Mouse", "Keyboard", "Case"];
+    const [minValue, setMinValue] = useState(0);
+    const [maxValue, setMaxValue] = useState(10000);
 
     const sidebarContent = (
         < Sidebar className="bg-white [&>div]:bg-white ml-5" >
             <SidebarItems >
                 <SidebarItemGroup >
+                    {/* <SidebarItem className="cursor-pointer">All</SidebarItem>
                     <SidebarItem className="cursor-pointer">GPUs</SidebarItem>
                     <SidebarItem className="cursor-pointer">CPUs</SidebarItem>
                     <SidebarItem className="cursor-pointer">RAM</SidebarItem>
                     <SidebarItem className="cursor-pointer">Monitors</SidebarItem>
                     <SidebarItem className="cursor-pointer">Mice</SidebarItem>
                     <SidebarItem className="cursor-pointer">Keyboards</SidebarItem>
-                    <SidebarItem className="cursor-pointer">Cases</SidebarItem>
+                    <SidebarItem className="cursor-pointer">Cases</SidebarItem> */}
+                    {categories.map((category) => (
+                        <SidebarItem key={category} className="cursor-pointer" onClick={(e)=>{setCategory((e.target.innerText).toLowerCase())}}>
+                            {category}
+                        </SidebarItem>
+                    ))}
                 </SidebarItemGroup>
             </SidebarItems>
             <SidebarItemGroup >
-                <DoubleSlider absoluteMin={0} absoluteMax={10000} minValue={minValue} setMinValue={setMinValue} maxValue={maxValue} setMaxValue={setMaxValue}/>
+                <DoubleSlider absoluteMin={0} absoluteMax={10000} minValue={minValue} setMinValue={setMinValue} maxValue={maxValue} setMaxValue={setMaxValue} />
             </SidebarItemGroup>
         </Sidebar >
     );
@@ -30,7 +37,7 @@ function ProductsSidebar({isOpen, setIsOpen}) {
         <>
             {/* static sidebar */}
             <div className="hidden md:block">
-            {sidebarContent}
+                {sidebarContent}
             </div>
 
             {/* offcanva sidebar overlay */}

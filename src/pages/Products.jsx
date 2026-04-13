@@ -6,11 +6,12 @@ import { useParams } from "react-router-dom";
 function Products() {
     const {currentPage} = useParams();
     const [isOpen, setIsOpen] = useState(false);
+    const [category,setCategory] = useState("all");
     return (
         <div className="flex">
-            <ProductsSidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+            <ProductsSidebar isOpen={isOpen} setIsOpen={setIsOpen} setCategory={setCategory} />
             <button className="md:hidden bg-neutral-200 fixed left-0 top-1/2 -translate-y-1/2 p-3 rounded-md" onClick={() => { setIsOpen(true) }}>&gt;</button>
-            <ProductSection productCount={9} productRow={3} productCategory="all" currentPage={currentPage} />
+            <ProductSection productCount={9} productRow={3} productCategory={category} currentPage={currentPage} />
         </div>
     );
 }
