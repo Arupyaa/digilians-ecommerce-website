@@ -9,7 +9,7 @@ const routes = createBrowserRouter([
   {
     path: '/', element: <Master />, children: [
       { path: '/', element: <Home /> },
-      { path: '/products/:currentPage', element: <Products /> },
+      { path: '/products/:currentCategory/page/:currentPage', element: <Products /> },
       {path: '/products', element: <Navigate to="/products/1" replace/>}
 
     ]

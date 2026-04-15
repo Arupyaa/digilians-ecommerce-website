@@ -4,7 +4,7 @@ import ProductSection from "../components/ProductSection";
 import { useParams } from "react-router-dom";
 
 function Products() {
-    const {currentPage} = useParams();
+    const {currentPage,currentCategory} = useParams();
     const [isOpen, setIsOpen] = useState(false);
     const [category,setCategory] = useState("all");
     return (
