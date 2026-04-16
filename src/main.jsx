@@ -4,13 +4,15 @@ import Home from './pages/Home'
 import Master from './pages/Master'
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import Products from './pages/Products'
+import Details from './pages/Details'
 
 const routes = createBrowserRouter([
   {
     path: '/', element: <Master />, children: [
       { path: '/', element: <Home /> },
       { path: '/products/:currentCategory/page/:currentPage', element: <Products /> },
-      {path: '/products', element: <Navigate to="/products/1" replace/>}
+      {path: '/products', element: <Navigate to="/products/1" replace/>},
+      {path: '/products/id/:productId', element:<Details/>}
 
     ]
   }

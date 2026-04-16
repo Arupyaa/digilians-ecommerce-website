@@ -10,7 +10,7 @@ function ProductsSidebar({ isOpen, setIsOpen }) {
     const [maxValue, setMaxValue] = useState(10000);
 
     const sidebarContent = (
-        < Sidebar className="bg-white [&>div]:bg-white ml-5" >
+        < Sidebar className="bg-white [&>div]:bg-white md:ml-5" >
             <SidebarItems >
                 <SidebarItemGroup >
 
