@@ -4,6 +4,7 @@ import websiteIcon from "../assets/web-logo.svg"
 import { NavLink } from "react-router-dom";
 
 function Header() {
+    const categories = ["All", "GPU", "CPU", "RAM", "Monitor", "Mouse", "Keyboard", "Case"];
     return (
         <Navbar fluid rounded className="border-b-2 sticky md:static top-0">
             <NavbarBrand href="#">
@@ -15,26 +16,48 @@ function Header() {
                 <NavbarToggle />
             </div>
             <NavbarCollapse>
-                <NavbarLink as={NavLink} to="/" active>
-                    Home
-                </NavbarLink>
+                <NavLink to="/">
+                    {({ isActive }) => (
+                        <NavbarLink active={isActive}>
+                            Home
+                        </NavbarLink>
+                    )}
+                </NavLink>
                 <Dropdown
                     trigger="hover"
                     arrowIcon={false}
                     inline
                     label={
-                        <NavbarLink as={NavLink} to="/Products">Products</NavbarLink>
+                        <NavLink to="/products/all/page/1">
+                            {({ isActive }) => (
+                                <NavbarLink active={isActive}>
+                                    Products
+                                </NavbarLink>
+                            )}
+                        </NavLink>
                     }
                 >
-                    <DropdownItem>GPUs</DropdownItem>
-                    <DropdownItem>CPUs</DropdownItem>
-                    <DropdownItem>RAM</DropdownItem>
-                    <DropdownItem>Monitors</DropdownItem>
-                    <DropdownItem>Mice</DropdownItem>
-                    <DropdownItem>Keyboards</DropdownItem>
-                    <DropdownItem>Cases</DropdownItem>
+                    {categories.map((category) => {
+                        const path = `/products/${category.toLowerCase()}/page/1`;
+
+                        return (
+                            <NavLink key={category} to={path}>
+                                {({ isActive }) => (
+                                    <DropdownItem
+                                        className={
+                                            isActive
+                                                ? "cursor-pointer bg-blue-100"
+                                                : "cursor-pointer"
+                                        }
+                                    >
+                                        {category}
+                                    </DropdownItem>
+                                )}
+                            </NavLink>
+                        );
+                    })}
                 </Dropdown>
-                <NavbarLink as={NavLink} to="#">About</NavbarLink>
+                {/* <NavbarLink as={NavLink} to="#" className={({ isActive }) => isActive ? "active" : ""}>About</NavbarLink> */}
             </NavbarCollapse>
         </Navbar>
     );

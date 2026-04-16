@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
-function ProductsList({ productCount,productRow, productCategory = "", currentPage ,setProductsAmount}) {
+function ProductsList({ productCount,productRow, productCategory, currentPage ,setProductsAmount}) {
+    if(productCategory == "all"){
+        productCategory = "";
+    }
     const [productList, changeProductList] = useState([]);
     async function getProducts() {
         let result = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:6nBUGF81/products?category=${productCategory}`).then(response => response.json());

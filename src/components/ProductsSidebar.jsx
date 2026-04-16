@@ -2,8 +2,9 @@ import { Sidebar, SidebarItems, SidebarItemGroup, SidebarItem } from "flowbite-r
 import { useState } from "react";
 import DoubleSlider from "./DoubleSlider";
 import "../css/DoubleSlider.css"
+import { NavLink } from "react-router-dom";
 
-function ProductsSidebar({ isOpen, setIsOpen, setCategory }) {
+function ProductsSidebar({ isOpen, setIsOpen }) {
     const categories = ["All", "GPU", "CPU", "RAM", "Monitor", "Mouse", "Keyboard", "Case"];
     const [minValue, setMinValue] = useState(0);
     const [maxValue, setMaxValue] = useState(10000);
@@ -12,18 +13,15 @@ function ProductsSidebar({ isOpen, setIsOpen, setCategory }) {
         < Sidebar className="bg-white [&>div]:bg-white ml-5" >
             <SidebarItems >
                 <SidebarItemGroup >
-                    {/* <SidebarItem className="cursor-pointer">All</SidebarItem>
-                    <SidebarItem className="cursor-pointer">GPUs</SidebarItem>
-                    <SidebarItem className="cursor-pointer">CPUs</SidebarItem>
-                    <SidebarItem className="cursor-pointer">RAM</SidebarItem>
-                    <SidebarItem className="cursor-pointer">Monitors</SidebarItem>
-                    <SidebarItem className="cursor-pointer">Mice</SidebarItem>
-                    <SidebarItem className="cursor-pointer">Keyboards</SidebarItem>
-                    <SidebarItem className="cursor-pointer">Cases</SidebarItem> */}
+
                     {categories.map((category) => (
-                        <SidebarItem key={category} className="cursor-pointer" onClick={(e)=>{setCategory((e.target.innerText).toLowerCase())}}>
-                            {category}
-                        </SidebarItem>
+                        <NavLink key={category} to={`/products/${category.toLowerCase()}/page/1`}>
+                            {({ isActive }) => (
+                                <SidebarItem className={isActive?"cursor-pointer  bg-blue-100":"cursor-pointer"}>
+                                    {category}
+                                </SidebarItem>
+                            )}
+                        </NavLink>
                     ))}
                 </SidebarItemGroup>
             </SidebarItems>
