@@ -17,7 +17,7 @@ function ProductCard({ product }) {
                     <h4 className="hover:underline">{product.title}</h4>
                 </ProductLink>
                 <p className="font-bold mb-3 md:mb-5">$<span>{product.price}</span></p>
-                <PurchaseButton />
+                <PurchaseButton productId={product.id}/>
             </div>
         </div>
     );

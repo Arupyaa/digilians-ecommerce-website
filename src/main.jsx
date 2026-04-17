@@ -5,14 +5,16 @@ import Master from './pages/Master'
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import Products from './pages/Products'
 import Details from './pages/Details'
+import Cart from './pages/Cart'
 
 const routes = createBrowserRouter([
   {
     path: '/', element: <Master />, children: [
       { path: '/', element: <Home /> },
       { path: '/products/:currentCategory/page/:currentPage', element: <Products /> },
-      {path: '/products', element: <Navigate to="/products/1" replace/>},
-      {path: '/products/id/:productId', element:<Details/>}
+      { path: '/products', element: <Navigate to="/products/all/page/1" replace /> },
+      { path: '/products/id/:productId', element: <Details /> },
+      { path: '/cart', element: <Cart /> }
 
     ]
   }
@@ -20,6 +22,6 @@ const routes = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <>
-    <RouterProvider router={routes}/>
+    <RouterProvider router={routes} />
   </>,
 )

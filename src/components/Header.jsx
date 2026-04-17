@@ -1,7 +1,8 @@
 import { Dropdown, DropdownItem, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
 import CartIcon from "./CartIcon";
 import websiteIcon from "../assets/web-logo.svg"
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import NavItem from "./NavItem";
 
 function Header() {
     const categories = ["All", "GPU", "CPU", "RAM", "Monitor", "Mouse", "Keyboard", "Case"];
@@ -12,30 +13,18 @@ function Header() {
 
             </NavbarBrand>
             <div className="flex md:order-2">
-                <CartIcon />
+                <Link to={'/cart'}>
+                    <CartIcon />
+                </Link>
                 <NavbarToggle />
             </div>
             <NavbarCollapse>
-                <NavLink to="/">
-                    {({ isActive }) => (
-                        <NavbarLink active={isActive}>
-                            Home
-                        </NavbarLink>
-                    )}
-                </NavLink>
+                <NavItem to="/">Home</NavItem>
                 <Dropdown
                     trigger="hover"
                     arrowIcon={false}
                     inline
-                    label={
-                        <NavLink to="/products/all/page/1">
-                            {({ isActive }) => (
-                                <NavbarLink active={isActive}>
-                                    Products
-                                </NavbarLink>
-                            )}
-                        </NavLink>
-                    }
+                    label={<NavItem to="/products/all/page/1">Products</NavItem>}
                 >
                     {categories.map((category) => {
                         const path = `/products/${category.toLowerCase()}/page/1`;
