@@ -3,7 +3,7 @@ import monitor from "../assets/monitor.jpg"
 import PurchaseButton from "../components/PurchaseButton";
 import { useEffect, useState} from "react";
 import QuantityBar from "../components/QuantityBar";
-
+import ProductPrice from "../components/ProductPrice";
 
 function Details() {   
     const [product, setProduct] = useState({ title: '', price: '', discountedPrice: '', description: '', image: null });
@@ -13,7 +13,7 @@ function Details() {
         setProduct({
             title: fetchedProduct.title,
             price: fetchedProduct.price,
-            discountedPrice: fetchedProduct.discounted_price,
+            discountedPrice: fetchedProduct.discount_price,
             description: fetchedProduct.description,
             image: fetchedProduct.main_image.url
         });
@@ -29,10 +29,7 @@ function Details() {
                 {/* product title */}
                 <div className="text-4xl font-bold">{product.title}</div>
                 {/* product price */}
-                <p className="font-bold">
-                    <span>$</span>
-                    <span>{product.price}</span>
-                </p>
+                <ProductPrice price={product.price} discount={product.discountedPrice} />
                 {/* product description */}
                 <p>{product.description}</p>
                 <div className="flex gap-4">

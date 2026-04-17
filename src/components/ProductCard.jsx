@@ -1,6 +1,7 @@
 import headphone from "../assets/Headphones.png"
 import PurchaseButton from "./PurchaseButton";
 import ProductLink from "./ProductLink";
+import ProductPrice from "./ProductPrice";
 
 function ProductCard({ product }) {
     return (
@@ -16,7 +17,8 @@ function ProductCard({ product }) {
                 <ProductLink productId={product.id}>
                     <h4 className="hover:underline">{product.title}</h4>
                 </ProductLink>
-                <p className="font-bold mb-3 md:mb-5">$<span>{product.price}</span></p>
+                {/* <p className="font-bold mb-3 md:mb-5">$<span>{product.price}</span></p> */}
+                <ProductPrice price={product.price} discount={product.discount_price} />
                 <PurchaseButton productId={product.id}/>
             </div>
         </div>
