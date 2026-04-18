@@ -4,10 +4,9 @@ import DoubleSlider from "./DoubleSlider";
 import "../css/DoubleSlider.css"
 import { NavLink } from "react-router-dom";
 
-function ProductsSidebar({ isOpen, setIsOpen }) {
+function ProductsSidebar({ isOpen, setIsOpen,minValue,maxValue,setMinValue,setMaxValue }) {
     const categories = ["All", "GPU", "CPU", "RAM", "Monitor", "Mouse", "Keyboard", "Case"];
-    const [minValue, setMinValue] = useState(0);
-    const [maxValue, setMaxValue] = useState(10000);
+    
 
     const sidebarContent = (
         < Sidebar className="bg-white [&>div]:bg-white md:ml-5" >
@@ -26,7 +25,7 @@ function ProductsSidebar({ isOpen, setIsOpen }) {
                 </SidebarItemGroup>
             </SidebarItems>
             <SidebarItemGroup >
-                <DoubleSlider absoluteMin={0} absoluteMax={10000} minValue={minValue} setMinValue={setMinValue} maxValue={maxValue} setMaxValue={setMaxValue} />
+                <DoubleSlider absoluteMin={0} absoluteMax={3000} minValue={minValue} setMinValue={setMinValue} maxValue={maxValue} setMaxValue={setMaxValue} />
             </SidebarItemGroup>
         </Sidebar >
     );
