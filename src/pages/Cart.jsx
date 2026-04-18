@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import CartItemCard from "../components/CartItemCard";
 import CartContext from "../contexts/cartContext";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
+    const navigate = useNavigate()
     const [cartProducts, setCartProducts] = useState([]);
     const { cart } = useContext(CartContext);
 
@@ -56,6 +58,11 @@ function Cart() {
     const shipping = shippingPrice.toFixed(2);
     const total = totalPrice.toFixed(2);
 
+    function checkout() {
+        if (cartProducts.length > 0) {
+            navigate("/checkout");
+        }
+    }
     return (
         <div className="flex flex-col gap-4 md:gap-x-12 md:grid md:grid-cols-10 md:grid-rows-[auto_1fr] mx-auto w-[90%] py-[30px] md:py-[60px] ">
 
@@ -90,7 +97,7 @@ function Cart() {
                     <span>${total}</span>
                 </div>
 
-                <button className="w-full text-white bg-blue-600 hover:bg-blue-500 border border-blue-500 rounded-md px-4 py-2.5">
+                <button onClick={checkout} className="w-full text-white bg-blue-600 hover:bg-blue-500 border border-blue-500 rounded-md px-4 py-2.5">
                     Proceed to Checkout
                 </button>
             </div>

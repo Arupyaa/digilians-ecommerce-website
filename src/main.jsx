@@ -6,6 +6,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import Products from './pages/Products'
 import Details from './pages/Details'
 import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
 
 const routes = createBrowserRouter([
   {
@@ -14,7 +15,8 @@ const routes = createBrowserRouter([
       { path: '/products/:currentCategory/page/:currentPage', element: <Products /> },
       { path: '/products', element: <Navigate to="/products/all/page/1" replace /> },
       { path: '/products/id/:productId', element: <Details /> },
-      { path: '/cart', element: <Cart /> }
+      { path: '/cart', element: <Cart /> },
+      { path: '/checkout', element: <Checkout /> },
 
     ]
   }
