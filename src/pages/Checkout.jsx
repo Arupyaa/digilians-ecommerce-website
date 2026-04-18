@@ -35,23 +35,23 @@ export default function Checkout() {
       <div className="mb-5 ">
         <h3 className='text-xl font-bold mb-5'>Contact Information</h3>
         <label htmlFor="email" className="block mb-2.5 text-sm font-medium text-heading">Email</label>
-        <input type="email" id="email" className="w-[50%] bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@flowbite.com" required />
+        <input type="email" id="email" className="w-[50%] bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@flowbite.com" required />
       </div>
 
       <div className="mb-5 ">
         <label htmlFor="name" className="block mb-2.5 text-sm font-medium text-heading">Full Name</label>
-        <input type="text" id="name" className="w-[50%] bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
+        <input type="text" id="name" className="w-[50%] bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
       </div>
 
       <div className="mb-5 ">
         <h3 className='text-xl font-bold mb-5'>Contact Information</h3>
         <label htmlFor="address" className="block mb-2.5 text-sm font-medium text-heading">Address</label>
-        <input type="text" id="address" className="w-[50%] bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
+        <input type="text" id="address" className="w-[50%] bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
       </div>
 
       <div className="mb-5 ">
         <label htmlFor="city" className="block mb-2.5 text-sm font-medium text-heading">City</label>
-        <input type="text" id="city" className="w-[50%] bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
+        <input type="text" id="city" className="w-[50%] bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
       </div>
 
       <label htmlFor="remember" className="flex items-center mb-5 ">

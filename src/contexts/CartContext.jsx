@@ -4,11 +4,20 @@ const CartContext = createContext({})
 export default CartContext;
 
 export function CartProvider({ children }) {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem("ByteCart")));
 
-    //for debugging purpose
+    // useEffect(() => {
+    //     //if cart exists on session storage on cart mount update cart
+    //     const sessionCart = JSON.parse(sessionStorage.getItem("ByteCart"));
+    //     if (sessionCart != null) {
+    //         setCart(sessionCart);
+    //     }
+    // }, [])
+
+    //for debugging purpose and saving cart to session storage
     useEffect(() => {
         console.log("Cart state:", cart);
+        sessionStorage.setItem("ByteCart", JSON.stringify(cart));
     }, [cart]);
 
     const addToCart = (productObject) => {
@@ -30,6 +39,8 @@ export function CartProvider({ children }) {
             //if product added never existed in the cart add it directly
             return ([...prev, productObject]);
         });
+
+        //save to localStorage
     }
 
     const removeFromCart = (toRemoveProductId) => {
