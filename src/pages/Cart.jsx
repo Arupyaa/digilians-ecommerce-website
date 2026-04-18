@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Cart() {
     const navigate = useNavigate()
     const [cartProducts, setCartProducts] = useState([]);
-    const { cart } = useContext(CartContext);
+    const { cart, resetCart } = useContext(CartContext);
 
     useEffect(() => {
         fetchCartProducts();
@@ -60,6 +60,7 @@ function Cart() {
 
     function checkout() {
         if (cartProducts.length > 0) {
+            resetCart();
             navigate("/checkout");
         }
     }
