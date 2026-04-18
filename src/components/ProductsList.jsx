@@ -15,13 +15,23 @@ function ProductsList({
     const [productList, changeProductList] = useState([]);
 
     async function getProducts() {
-        let category = productCategory === "all" ? "" : productCategory;
+        try {
+            let category = productCategory === "all" ? "" : productCategory;
 
-        const result = await fetch(
-            `https://x8ki-letl-twmt.n7.xano.io/api:6nBUGF81/products?category=${category}`
-        ).then((res) => res.json());
+            const res = await fetch(
+                `https://x8ki-letl-twmt.n7.xano.io/api:6nBUGF81/products?category=${category}`
+            )
+            if (!res.ok) {
+                throw new Error(`HTTP Error:${res.status}`);
+            }
+            const result = await res.json();
+            setAllProducts(result);
+        } catch (error) {
+            console.error("Failed to fetch product due to backend rate limit (10req/20sec) retry again after 20sec:", error.message);
+            alert(`Failed to fetch product due to backend rate limit (10req/20sec) retry again after 20sec: ${error.message}`)
+        }
 
-        setAllProducts(result);
+
     }
 
 

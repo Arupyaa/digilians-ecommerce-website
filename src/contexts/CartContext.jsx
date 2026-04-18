@@ -4,7 +4,9 @@ const CartContext = createContext({})
 export default CartContext;
 
 export function CartProvider({ children }) {
-    const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem("ByteCart")));
+    const [cart, setCart] = useState(
+        JSON.parse(sessionStorage.getItem("ByteCart") || "[]")
+    );
 
     // useEffect(() => {
     //     //if cart exists on session storage on cart mount update cart
